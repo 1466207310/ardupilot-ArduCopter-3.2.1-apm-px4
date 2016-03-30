@@ -322,5 +322,6 @@ fi
 if [ $START_HIL == 1 ]; then
     options="$options --load-module=HIL"
 fi
-mavproxy.py $options --cmd="$extra_cmd" $*
+mavproxy --moddebug 3 $options --cmd="$extra_cmd" $*
+# mavproxy.py $options --cmd="$extra_cmd" $*
 kill_tasks

@@ -21,6 +21,9 @@
 #include <AP_HAL_Empty.h>
 #include <AP_HAL_Empty_Private.h>
 
+#include <stdio.h>
+#include <stdlib.h>
+
 using namespace AVR_SITL;
 
 static SITLScheduler sitlScheduler;
@@ -66,8 +69,9 @@ HAL_AVR_SITL::HAL_AVR_SITL() :
 
 void HAL_AVR_SITL::init(int argc, char * const argv[]) const 
 {
-    _sitl_state->init(argc, argv);
+    fprintf(stdout, "HAL_AVR_SITL init\n");
     scheduler->init(NULL);
+    _sitl_state->init(argc, argv);
     uartA->begin(115200);
 
     rcin->init(NULL);

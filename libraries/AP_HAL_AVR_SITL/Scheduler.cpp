@@ -48,6 +48,7 @@ SITLScheduler::SITLScheduler()
 
 void SITLScheduler::init(void *unused) 
 {
+    fprintf(stdout, "SITLScheduler init\n");
 	gettimeofday(&_sketch_start_time,NULL);
 
 #ifdef __CYGWIN__
@@ -57,6 +58,7 @@ void SITLScheduler::init(void *unused)
 	QueryPerformanceCounter(&lCnt);
 	_cyg_start = lCnt.LowPart;
 #endif
+    printf("SITLScheduler::_cyg_freq %lf\n", _cyg_freq); 
 
 }
 #ifdef __CYGWIN__
